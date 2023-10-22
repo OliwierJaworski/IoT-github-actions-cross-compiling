@@ -18,16 +18,14 @@ jobs:
 
    
     - name: install Arm cross compiler
-      run: sudo apt install --yes {gcc,binutils}-arm-linux-gnueabihf -y
-
-    - name: install gcc compiler
-      run: sudo apt-get install g++ -y
+      run: sudo apt install --yes {gcc,binutils}-arm-linux-gnueabihf 
       
     - name: files in directory
       run: ls
       
     - name: compile code
       run: arm-linux-gnueabihf-gcc -o out.exe HelloWorld.cpp
+          
 
     - name: dir for atrifacts
       run: mkdir -p artifacts
@@ -42,4 +40,4 @@ jobs:
         path: artifacts/out
         
     - name: check compiled file
-      run: file artifacts/out
+      run: file artifacts/out.exe
