@@ -17,17 +17,11 @@ jobs:
       uses: actions/checkout@v3
 
     - name: install Arm cross compiler
-      run:  sudo apt-get update
-
-    - name: install Arm cross compiler
-      run: sudo apt-get install --reinstall build-essential
-
-    - name: install Arm cross compiler
       run: sudo apt install --yes {gcc,binutils}-arm-linux-gnueabihf 
+
+    - name: check gcc version
+      run: gcc -v
            
-    - name: files in directory
-      run: ls
-      
     - name: compile code
       run: arm-linux-gnueabihf-gcc -o out.exe HelloWorld.cpp
           
