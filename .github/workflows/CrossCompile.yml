@@ -23,6 +23,9 @@ jobs:
     - name: install gcc compiler
       run: sudo apt-get install g++ -y
       
+    - name: files in directory
+      run: ls
+      
     - name: compile code
       run: arm-linux-gnueabihf-gcc -o out.exe HelloWorld.cpp
 
