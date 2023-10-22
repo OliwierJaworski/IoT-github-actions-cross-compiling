@@ -29,13 +29,13 @@ jobs:
       run: mkdir -p artifacts
 
     - name: mov .exe to folder
-      run: mv out artifacts/out
+      run: mv out.exe artifacts/out
 
     - name: Upload executable
       uses: actions/upload-artifact@v2
       with:
-        name: out
-        path: artifacts/out
+        name: out.exe
+        path: artifacts/out.exe
         
     - name: check compiled file
       run: file artifacts/out.exe
