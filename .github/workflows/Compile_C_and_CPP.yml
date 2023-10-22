@@ -18,13 +18,13 @@ jobs:
       
     - name: install Arm cross compiler
       run: sudo apt-get update
-          
-    - name: compile code if c
-      run: gcc -o out.exe HelloWorld.c
-           
-           
+                  
     - name: compile code if cpp
-      run: g++ -o out.exe HelloWorld.cpp
+      run: if [ -f HelloWorld.cpp ]; then
+          g++ -o out.exe HelloWorld.cpp
+        else
+          g++ -o out.exe HelloWorld.c
+        fi
           
     - name: Upload executable
       uses: actions/upload-artifact@v2
