@@ -20,11 +20,7 @@ jobs:
       run: sudo apt-get update
                   
     - name: compile code if cpp
-      run: if [ -f HelloWorld.cpp ]; then
-          g++ -o out.exe HelloWorld.cpp
-        else
-          g++ -o out.exe HelloWorld.c
-        fi
+      run: g++ -o out.exe HelloWorld
           
     - name: Upload executable
       uses: actions/upload-artifact@v2
