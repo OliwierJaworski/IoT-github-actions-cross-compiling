@@ -18,10 +18,7 @@ jobs:
       
     - name: install Arm cross compiler
       run: sudo apt-get update
-      
-    - name: install Arm cross compiler
-      run: sudo apt install --yes {gcc,binutils}-arm-linux-gnueabihf 
-       
+          
     - name: compile code if c
       run: arm-linux-gcc -o out.exe HelloWorld.c
            
