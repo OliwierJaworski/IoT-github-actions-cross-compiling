@@ -18,17 +18,15 @@ jobs:
 
     - name: install Arm cross compiler
       run: sudo apt install --yes {gcc,binutils}-arm-linux-gnueabihf 
-      
+           sudo apt-get update
+           sudo apt-get install --reinstall build-essential
+           
     - name: files in directory
       run: ls
-      
-    - name: Set up Cross-Compiler
-      run: echo "export PATH=\$PATH:/path/to/your/arm-linux-gnueabihf/bin" >> $GITHUB_ENV
       
     - name: compile code
       run: arm-linux-gnueabihf-gcc -o out.exe HelloWorld.cpp
           
-
     - name: dir for atrifacts
       run: mkdir -p artifacts
 
