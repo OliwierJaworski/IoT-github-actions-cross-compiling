@@ -20,11 +20,11 @@ jobs:
       run: sudo apt-get update
           
     - name: compile code if c
-      run: arm-linux-gcc -o out.exe HelloWorld.c
+      run: gcc -o out.exe HelloWorld.c
            
            
     - name: compile code if cpp
-      run: arm-linux-g++ -o out.exe HelloWorld.cpp
+      run: g++ -o out.exe HelloWorld.cpp
           
     - name: Upload executable
       uses: actions/upload-artifact@v2
