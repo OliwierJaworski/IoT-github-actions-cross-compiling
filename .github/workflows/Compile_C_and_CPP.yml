@@ -1,0 +1,35 @@
+name: Compiling_only_main
+
+on:
+  push:
+    branches:
+      -  main
+  pull_request:
+    branches:
+      -  main
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+      
+    - name: install Arm cross compiler
+      run: sudo apt-get update
+      
+    - name: install Arm cross compiler
+      run: sudo apt install --yes {gcc,binutils}-arm-linux-gnueabihf 
+       
+    - name: compile code
+      run: if [ -f HelloWorld.c ]; then arm-linux-gcc -o out.exe HelloWorld.c
+           elif [ -f HelloWorld.cpp ]; then arm-linux-g++ -o out.exe HelloWorld.cpp
+          
+    - name: Upload executable
+      uses: actions/upload-artifact@v2
+      with:
+        name: out.exe
+        
+    - name: check compiled file
+      run: file artifacts/out.exe
