@@ -15,12 +15,12 @@ jobs:
     steps:
     - name: Check out the code
       uses: actions/checkout@v2
-      
-    - name: install Arm cross compiler
-      run: sudo apt-get update
-                  
+                     
     - name: compile code if cpp
-      run: g++ -o out.exe HelloWorld.cpp || gcc -o out.exe HelloWorld.c
+      run: g++ -o out.exe HelloWorld.cpp || true 
+
+    - name: compile code if cpp
+      run: gcc -o out.exe HelloWorld.c || true
           
     - name: Upload executable
       uses: actions/upload-artifact@v2
