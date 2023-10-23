@@ -26,6 +26,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: out.exe
+        path: out.exe
         
     - name: check compiled file
       run: file artifacts/out.exe
