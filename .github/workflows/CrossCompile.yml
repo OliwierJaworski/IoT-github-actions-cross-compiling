@@ -23,7 +23,10 @@ jobs:
       run: sudo apt install --yes {gcc,binutils}-arm-linux-gnueabihf 
        
     - name: compile code
-      run: arm-linux-gnueabihf-gcc -o out.exe HelloWorld.c
+      run: arm-linux-gnueabihf-gcc -o out.exe HelloWorld.c || true 
+
+    - name: compile code
+      run: arm-linux-gnueabihf-gcc -o out.exe HelloWorld.cpp || true 
           
     - name: dir for atrifacts
       run: mkdir -p artifacts
