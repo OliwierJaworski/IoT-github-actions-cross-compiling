@@ -13,20 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out the code
+    - name: Checks the github repo
       uses: actions/checkout@v2
                      
-    - name: compile code if cpp
+    - name: compiles code if cpp
       run: g++ -o out.exe HelloWorld.cpp || true 
 
-    - name: compile code if cpp
+    - name: compiles code if c
       run: gcc -o out.exe HelloWorld.c || true
           
-    - name: Upload executable
+    - name: Uploads executable
       uses: actions/upload-artifact@v2
       with:
         name: out.exe
         path: out.exe
         
-    - name: check compiled file
-      run: file artifacts/out.exe
+    - name: checks compiled file
+      run: file out.exe
