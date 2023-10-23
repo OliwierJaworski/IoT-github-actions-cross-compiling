@@ -26,7 +26,7 @@ jobs:
       run: arm-linux-gnueabihf-gcc -o out.exe HelloWorld.c || true 
 
     - name: compile code
-      run: arm-linux-gnueabihf-gcc -o out.exe HelloWorld.cpp || true 
+      run: arm-linux-gnueabihf-g++ -o out.exe HelloWorld.cpp || true 
           
     - name: dir for atrifacts
       run: mkdir -p artifacts
